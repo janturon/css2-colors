@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<style>
+  body { margin: 4px; }
+  div[title] { display: inline-block; margin: 0.5em; border: 1px solid WindowFrame; }
+  div[style] { padding: 0.5em; }
+  div[id] { display: inline-block; vertical-align: top; width: 24vw; }
+  div span:first-child { display: inline-block; vertical-align: middle; width: 5em; height: 1.5em; margin: 0.5em; }
+  h1 { text-align: center; }
+  xmp { white-space: pre-wrap; }
+    xmp:before { display: block; margin: 0 0 -1em 0; height: 0; content: " "; }
+
+  .gray { color: GrayText; }
+  .border-box { box-shadow: 0 0 0 1px WindowFrame; }
+  .button { color: ButtonText; background: ButtonFace; border-top: 2px solid ButtonHighlight; border-left: 2px solid ButtonHighlight; border-right: 2px solid ButtonShadow; border-bottom: 2px solid ButtonShadow; display: inline-block; padding: 0.2em; cursor: default; text-decoration: none; }
+  .button:active { border-bottom: 2px solid ButtonHighlight; border-right: 2px solid ButtonHighlight; border-left: 2px solid ButtonShadow; border-top: 2px solid ButtonShadow; padding-top: calc(0.2em + 1px); padding-bottom: calc(0.2em - 1px); padding-left: calc(0.2em + 1px); padding-right: calc(0.2em - 1px); }
+</style>
+
+<h1>CSS2 colors</h1>
+<center><i class="gray">leave all colors to OS</i></center>
+<div id="fgs"><h2>Foregrounds</h2></div>
+<div id="bgs"><h2>Backgrounds</h2></div>
+<div id="shas"><h2>Shadows</h2></div>
+<div id="lins"><h2>Lines</h2></div>
+<hr>
+<h2>Usable combinations</h2>
+<div title><div style="color: CaptionText; background: ActiveCaption;">CaptionText/ActiveCaption</div></div>
+<div title><div style="color: InactiveCaptionText; background: InactiveActiveCaption;">InactiveCaptionText/InactiveCaption</div></div>
+<div title><div style="color: MenuText; background: Menu;">MenuText/Menu</div></div><br>
+<div title><div style="color: WindowText; background: Window;">WindowText <div style="display: inline-block; padding: 0; color: GrayText">GrayText</div>/Window</div></div>
+<div title><div style="color: InfoText; background: InfoBackground;">InfoText/InfoBackground</div></div>
+<div title><div style="color: HighlightText; background: Highlight;">HighlightText/Highlight</div></div><br>
+<div title><div style="color: ButtonText; background: ButtonFace; border-top: 2px solid ButtonHighlight; border-left: 2px solid ButtonHighlight; border-right: 2px solid ButtonShadow; border-bottom: 2px solid ButtonShadow;">ButtonText/ButtonFace; border ButtonHighlight, ButtonShadow</div></div><br>
+<div title><div style="color: WindowText; background: ThreeDFace; border-top: 2px solid ThreeDHighlight; border-left: 2px solid ThreeDHighlight; border-right: 2px solid ThreeDDarkShadow; border-bottom: 2px solid ThreeDDarkShadow;">WindowText/ThreeDFace; border ThreeDHighlight, ThreeDDarkShadow</div></div><br>
+<div title><div style="color: WindowText; background: ThreeDFace; border-top: 2px solid ThreeDLightShadow; border-left: 2px solid ThreeDLightShadow; border-right: 2px solid ThreeDShadow; border-bottom: 2px solid ThreeDShadow;">WindowText/ThreeDFace; border ThreeDLightShadow, ThreeDShadow</div></div><br>
+<script>
+  var afgs = ["InactiveCaptionText","ButtonText","CaptionText","GrayText","HighlightText","InfoText","MenuText","WindowText"];
+  var abgs = ["AppWorkspace","ActiveCaption","InactiveCaption","Background","ButtonFace","Highlight","InfoBackground","Menu","Window","ThreeDFace"];
+  var ashas = ["ButtonHighlight","ButtonShadow","ThreeDHighlight","ThreeDDarkShadow","ThreeDShadow","ThreeDLightShadow"];
+  var alins = ["ActiveBorder","InactiveBorder","WindowFrame"];
+
+  ["fgs","bgs","shadows","lines"].forEach( (el) => window[el] = document.getElementById(el) );
+
+afgs.forEach( (i) => fgs.innerHTML+= '<div><span style="background:'+i+'"></span><span>'+i+'</span></div>' );
+abgs.forEach( (i) => bgs.innerHTML+= '<div><span style="background:'+i+'"></span><span>'+i+'</span></div>' );
+ashas.forEach( (i) => shas.innerHTML+= '<div><span style="background:'+i+'"></span><span>'+i+'</span></div>' );
+alins.forEach( (i) => lins.innerHTML+= '<div><span style="background:'+i+'"></span><span>'+i+'</span></div>' );
+</script>
+<p>Don't use intuitive <tt>style="background: Background"</tt>: it's desktop background; people usually use wallpaper instead and leave the underlying color default, it is often invisible (bypassed) and hideous. Better use <tt>style="background: Window"</tt> as the default window background.
+<p>The only usable color for borders seems to be <tt>WindowFrame</tt>, as it is used for the combinations above.
+
+<h2>Styles to use</h2>
+<xmp>
+  .default { color: WindowText; background: Window; font-family: sans-serif; }
+  .active { color: CaptionText; background: ActiveCaption; }
+  .inactive { color: InactiveCaptionText; background: InactiveCaption; }
+  .highlight { color: HighlightText; background: Highlight; }
+  .info { color: InfoText; background: InfoBackground; }
+  .gray { color: GrayText; }
+  .border-box { box-shadow: 0 0 0 1px WindowFrame; }
+  .elevated { color: WindowText; background: ThreeDFace; border-top: 2px solid ThreeDHighlight; border-left: 2px solid ThreeDHighlight; border-right: 2px solid ThreeDDarkShadow; border-bottom: 2px solid ThreeDDarkShadow; }
+  .button { color: ButtonText; background: ButtonFace; border-top: 2px solid ButtonHighlight; border-left: 2px solid ButtonHighlight; border-right: 2px solid ButtonShadow; border-bottom: 2px solid ButtonShadow; display: inline-block; padding: 0.2em; cursor: default; text-decoration: none; }
+  .button:active { border-bottom: 2px solid ButtonHighlight; border-right: 2px solid ButtonHighlight; border-left: 2px solid ButtonShadow; border-top: 2px solid ButtonShadow; padding-top: calc(0.2em + 1px); padding-bottom: calc(0.2em - 1px); padding-left: calc(0.2em + 1px); padding-right: calc(0.2em - 1px); }
+</xmp>
+
+<h2>Colors worth to hardcode</h2>
+<p><a href="https://www.w3.org/TR/html5/rendering.html#phrasing-content-0">WC Phrasing content recommendation</a>
+<xmp>
+  :link { color: #0000EE; }
+  :visited { color: #551A8B; }
+  /* mark { color: black; background: yellow; } */
+</xmp>
+<p>The <tt>mark</tt> in CSS2 compliant colors perharps could by replaced by <i>Highlight</i> or <i>InfoBackground</i> backgrounds.
+<h2>Example</h2>
+<xmp>
+<a class="button border-box" href="javascript:void">Hello</a>
+</xmp>
+<a class="button border-box" href="javascript:void">Hello</a>
