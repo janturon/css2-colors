@@ -1,0 +1,10 @@
+  .default { color: WindowText; background: Window; font-family: sans-serif; }
+  .active { color: CaptionText; background: ActiveCaption; }
+  .inactive { color: InactiveCaptionText; background: InactiveCaption; }
+  .highlight { color: HighlightText; background: Highlight; }
+  .info { color: InfoText; background: InfoBackground; }
+  .gray { color: GrayText; }
+  .border-box { box-shadow: 0 0 0 1px WindowFrame; }
+  .elevated { color: WindowText; background: ThreeDFace; border-top: 2px solid ThreeDHighlight; border-left: 2px solid ThreeDHighlight; border-right: 2px solid ThreeDDarkShadow; border-bottom: 2px solid ThreeDDarkShadow; }
+  .button { color: ButtonText; background: ButtonFace; border-top: 2px solid ButtonHighlight; border-left: 2px solid ButtonHighlight; border-right: 2px solid ButtonShadow; border-bottom: 2px solid ButtonShadow; display: inline-block; padding: 0.2em; cursor: default; text-decoration: none; }
+  .button:active { border-bottom: 2px solid ButtonHighlight; border-right: 2px solid ButtonHighlight; border-left: 2px solid ButtonShadow; border-top: 2px solid ButtonShadow; padding-top: calc(0.2em + 1px); padding-bottom: calc(0.2em - 1px); padding-left: calc(0.2em + 1px); padding-right: calc(0.2em - 1px); }
